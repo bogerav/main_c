@@ -1,4 +1,5 @@
 #include "subvector.h"
+using namespace std;
 
 bool init(subvector *qv) {
   qv->mas = nullptr;
@@ -79,4 +80,24 @@ void destructor(subvector *qv) {
   qv->capacity = 0;
   delete[] qv->mas;
   qv->mas = nullptr;
+}
+
+bool init_from_file(subvector* qv, char* filename)
+{
+    string line;
+    destructor(qv);
+
+    ifstream in(filename); 
+    if (in.is_open())
+    {
+        getline(in, line);
+        istringstream iss(line);
+        vector<string> v((istream_iterator <string> (iss)), istream_iterator<string>());
+        for (int i = 0; i < size(v); i++)
+        {
+            push_back(qv, stoi(v[i]));
+        }
+    }
+    in.close();
+    return qv->mas;
 }
