@@ -7,9 +7,9 @@ int main() {
     string a;
     cin >> a;
     for (int i = 0; i < a.size(); ++i) {
-        if (a[i] == '(' or a[i] == '{' or a[i] == '[')
+        if (a[i] == '(' or a[i] == '{' or a[i] == '[' or a[i] == '<')
             v.push_back(a[i]);
-        if (v.empty() and ((a[i] == ')') or (a[i] == '}') or (a[i] == ']'))) {
+        if (v.empty() and ((a[i] == ')') or (a[i] == '}') or (a[i] == ']') or (a[i] == '>'))) {
             cout <<"NO";
             return 0;
         }
@@ -18,6 +18,8 @@ int main() {
         if ((a[i] == '}') and (!v.empty()) and (v.back() == '{')) 
             v.pop_back();
         if ((a[i] == ']') and (!v.empty()) and (v.back() ==  '['))
+            v.pop_back();
+        if ((a[i] == '>') and (!v.empty()) and (v.back() ==  '<'))
             v.pop_back();
     }
     if (!v.empty())
