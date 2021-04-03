@@ -4,10 +4,10 @@ Node* mergeLists(Node* first_node, Node* second_node) {
 	if (first_node == NULL or second_node == NULL) {
 		if (first_node == NULL and second_node == NULL)
 			return NULL;
-	if (first_node == NULL and second_node != NULL)
-		return second_node;
-	if (first_node != NULL and second_node == NULL)
-		return first_node;
+	  if (first_node == NULL and second_node != NULL)
+		  return second_node;
+	  if (first_node != NULL and second_node == NULL)
+		  return first_node;
 	} 
   else {
 		if (first_node->value > second_node->value) {
