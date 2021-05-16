@@ -1,0 +1,3 @@
+blue - bubble
+orange - merge
+gray - std sort
